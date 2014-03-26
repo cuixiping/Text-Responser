@@ -14,5 +14,5 @@
       "scripts": [ "background.js" ]
    },
   "options_page": "options.html",
-   "permissions": [ "storage", "webRequest", "webRequestBlocking", "<all_urls>" ]
+   "permissions": [ "storage", "webRequest", "webRequestBlocking", "http://*/*", "https://*/*" ]
 }
