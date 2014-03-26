@@ -1,7 +1,7 @@
 {
    "manifest_version": 2,
    "name": "Text Responser",
-   "version": "0.2",
+   "version": "0.3",
    "description": "用于替换响应的Chrome扩展，类似于Fiddler但不需要建立文件，直接指定文本响应内容。可用于拦截各种脚本，并且不使页面js出错。",
    "icons": {
       "16": "logo-128.png",
@@ -11,7 +11,7 @@
    "homepage_url": "http://cuixiping.github.io/Text-Responser/",
    "offline_enabled": true,
    "background": {
-      "scripts": [ "background-block.js" ]
+      "scripts": [ "background.js" ]
    },
   "options_page": "options.html",
    "permissions": [ "storage", "webRequest", "webRequestBlocking", "<all_urls>" ]

@@ -40,7 +40,7 @@ function loopUntil(obj,fn,ctx,arg){
 }
 
 function loadConfig(){
-	chrome.storage.local.get('patterns', function (ops){
+	chrome['storage']['local']['get']('patterns', function (ops){
 		patterns = ops && ops['patterns'];
 		console.log(patterns);
 	});
@@ -48,18 +48,18 @@ function loadConfig(){
 
 
 function checkMatch(item, i, url){
-	if(url == item.pattern){
+	if(url == item['pattern']){
 		match = item;
 		return true;
 	}
 }
 function filterRequest(request) {
 	//使用chrome.storage.local/sync来存取扩展的配置参数
-	if(patterns && request && request.url){
+	if(patterns && request && request['url']){
 		match = null;
-		loopUntil(patterns, checkMatch, null, request.url);
+		loopUntil(patterns, checkMatch, null, request['url']);
 		if(match){
-			return {"redirectUrl": "data:application/javascript;base64,"+btoa(match.response)};
+			return {"redirectUrl": "data:application/javascript;base64,"+btoa(match['response'])};
 		}
 	}
 }
@@ -68,12 +68,12 @@ loadConfig();
 
 // http://developer.chrome.com/extensions/webRequest
 // http://developer.chrome.com/extensions/match_patterns
-chrome.webRequest.onBeforeRequest.addListener(filterRequest,
+chrome['webRequest']['onBeforeRequest']['addListener'](filterRequest,
 	{"urls": ["http://*/*", "https://*/*"]},
 	['blocking']
 );
 
-chrome.storage.onChanged.addListener(function (changes, areaName){
+chrome['storage']['onChanged']['addListener'](function (changes, areaName){
 	if(areaName == 'local'){
 		loadConfig();
 	}
