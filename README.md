@@ -1,4 +1,4 @@
-Chrome-Response-Replacer
+Chrome Response Replacer
 ========================
 
 **年代久远，该扩展可能已经不适用于现在的Chrome**
